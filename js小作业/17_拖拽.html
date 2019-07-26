@@ -28,12 +28,25 @@
             // 鼠标距离div左侧的位置
             var disX = e.clientX - Odiv.offsetLeft;
             var disY = e.clientY - Odiv.offsetTop;
-            console.log(disX);
-            console.log(disY);
+            console.log(disX,disY);
             document.onmousemove = function(e){
                 // 随着鼠标走
                 Odiv.style.left = e.clientX - disX + "px";
                 Odiv.style.top = e.clientY - disY + "px";
+                if(Odiv.offsetLeft < 0){
+                    Odiv.style.left = "0px";
+                }
+                if(Odiv.offsetTop < 0){
+                    Odiv.style.top = "0px";
+                }
+                // 右最大值
+                if(Odiv.offsetLeft > document.documentElement.clientWidth - Odiv.offsetWidth){
+                    Odiv.style.left = document.documentElement.clientWidth - Odiv.offsetWidth + "px";
+                }
+                // 下最大值
+                if(Odiv.offsetTop > document.documentElement.clientHeight - Odiv.offsetHeight){
+                    Odiv.style.top = document.documentElement.clientHeight - Odiv.offsetHeight + "px";
+                }
             }
         }
         Odiv.onmouseup = function(){
