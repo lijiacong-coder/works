@@ -98,23 +98,13 @@
             $('#content div').eq(inow).addClass('selected').siblings().removeClass('selected');
         })
         var timer = setInterval(function(){
-            inow++;
-            if(inow == 5){
-                inow=0;
-            }
-            $('#btns li').eq(inow).addClass('list').siblings().removeClass('list');
-            $('#content div').eq(inow).addClass('selected').siblings().removeClass('selected');
+            $('arrow-right').trigger('click');
             },1000);
         $('#container').hover(function(){
             clearInterval(timer);
         },function(){
             timer = setInterval(function(){
-            inow++;
-            if(inow == 5){
-                inow=0;
-            }
-            $('#btns li').eq(inow).addClass('list').siblings().removeClass('list');
-            $('#content div').eq(inow).addClass('selected').siblings().removeClass('selected');
+                $('arrow-right').trigger('click');
             },1000);
         })
     </script>
